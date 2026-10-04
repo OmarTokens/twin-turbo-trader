@@ -5,6 +5,19 @@
 **Twin Turbo** 🤖 runs before every market open, does the math, writes your 📝 order tickets, and sends you a 📬 fun email.
 **You approve every trade yourself in IBKR.** The agent never pulls the trigger. 🔒
 
+## 🔴 Live: does it actually work?
+
+Twin Turbo has been trading a **real (small) account** under exactly these rules since **Oct 5, 2026**. The scoreboard updates every Friday after the close, **% only**.
+
+![Twin Turbo live scoreboard](live/scoreboard.svg)
+
+<!-- PIT-REPORT:START -->
+### 🏁 Pit Report
+*Lights out Monday Oct 5. First lap results arrive Friday Oct 9 after the close.*
+<!-- PIT-REPORT:END -->
+
+**[📒 Full race log →](LIVE.md)** · 🧪 Pass/fail at week 26: beat QQQ after costs. Bitcoin and SMH are shown for context.
+
 > 🎮 **A trading sandbox, not your retirement plan.** Use a **separate, small account** you're OK playing with.
 >
 > ⚠️ **Not financial advice.** You can lose money (the backtest below had a −34% drawdown). Read the [fine print](#️-the-fine-print). 🧪 Start on a paper account.
