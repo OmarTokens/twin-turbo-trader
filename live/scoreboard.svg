@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 560" width="880" height="560" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">
+<style>
+.bg{fill:#fcfcfb;stroke:#e4e3df} .t1{fill:#0b0b0b} .t2{fill:#52514e} .t3{fill:#7a7974} .chip{fill:#f3f2ef}
+.grid{stroke:#ecebe7} .zero{stroke:#c9c8c3} .ax{fill:#7a7974;font-size:12px} .div{stroke:#e4e3df}
+.s1{stroke:#2a78d6} .s2{stroke:#eb6834} .s3{stroke:#1baf7a} .s4{stroke:#eda100}
+.s1f{fill:#2a78d6} .s2f{fill:#eb6834} .s3f{fill:#1baf7a} .s4f{fill:#eda100}
+.pill{fill:#ecebe7} .pillt{fill:#3b3a37}
+@media (prefers-color-scheme: dark){
+.bg{fill:#1a1a19;stroke:#2e2e2c} .t1{fill:#fff} .t2{fill:#c3c2b7} .t3{fill:#9a998f} .chip{fill:#242423}
+.grid{stroke:#2a2a28} .zero{stroke:#4a4a46} .ax{fill:#9a998f} .div{stroke:#2e2e2c}
+.s1{stroke:#3987e5} .s2{stroke:#d95926} .s3{stroke:#199e70} .s4{stroke:#c98500}
+.s1f{fill:#3987e5} .s2f{fill:#d95926} .s3f{fill:#199e70} .s4f{fill:#c98500}
+.pill{fill:#2c2c2a} .pillt{fill:#e6e5df} }
+</style>
+<rect x=".5" y=".5" width="879" height="559" rx="14" class="bg"/>
+<text x="28" y="38" class="t2" font-size="13" font-weight="600" letter-spacing="1.2">🧪 LIVE EXPERIMENT · CAN AN AI AGENT BEAT THE MARKET?</text>
+<text x="852" y="38" class="t3" font-size="13" text-anchor="end">Week 0 of 26</text>
+<text x="28" y="98" class="t1" font-size="46" font-weight="700">0.0%</text>
+<text x="162" y="98" class="t2" font-size="18">Twin Turbo since start</text>
+<rect x="616" y="70" width="236" height="32" rx="16" class="pill"/>
+<text x="734" y="91" class="pillt" font-size="13.5" font-weight="600" text-anchor="middle">On the grid</text>
+<text x="28" y="126" class="t3" font-size="12.5">Since Oct 5, 2026 · real account · % only</text>
+<rect x="28" y="150" width="261" height="64" rx="10" class="chip"/><text x="42" y="174" class="t3" font-size="12.5">vs QQQ <tspan class="t2">—</tspan></text><text x="42" y="200" class="t1" font-size="18" font-weight="700">Level</text><rect x="305" y="150" width="261" height="64" rx="10" class="chip"/><text x="319" y="174" class="t3" font-size="12.5">vs Bitcoin <tspan class="t2">—</tspan></text><text x="319" y="200" class="t1" font-size="18" font-weight="700">Level</text><rect x="582" y="150" width="261" height="64" rx="10" class="chip"/><text x="596" y="174" class="t3" font-size="12.5">vs SMH chips <tspan class="t2">—</tspan></text><text x="596" y="200" class="t1" font-size="18" font-weight="700">Level</text>
+<line x1="28" x2="852" y1="236" y2="236" class="div"/>
+<line x1="56" x2="600" y1="483.0" y2="483.0" class="grid"/><text x="48" y="487.0" class="ax" text-anchor="end">-3%</text><line x1="56" x2="600" y1="449.0" y2="449.0" class="grid"/><text x="48" y="453.0" class="ax" text-anchor="end">-2%</text><line x1="56" x2="600" y1="415.0" y2="415.0" class="grid"/><text x="48" y="419.0" class="ax" text-anchor="end">-1%</text><line x1="56" x2="600" y1="381.0" y2="381.0" class="zero"/><text x="48" y="385.0" class="ax" text-anchor="end">0%</text><line x1="56" x2="600" y1="347.0" y2="347.0" class="grid"/><text x="48" y="351.0" class="ax" text-anchor="end">+1%</text><line x1="56" x2="600" y1="313.0" y2="313.0" class="grid"/><text x="48" y="317.0" class="ax" text-anchor="end">+2%</text><line x1="56" x2="600" y1="279.0" y2="279.0" class="grid"/><text x="48" y="283.0" class="ax" text-anchor="end">+3%</text><text x="56.0" y="520" class="ax" text-anchor="middle">Start</text><text x="139.7" y="520" class="ax" text-anchor="middle">Wk 2</text><text x="223.4" y="520" class="ax" text-anchor="middle">Wk 4</text><text x="307.1" y="520" class="ax" text-anchor="middle">Wk 6</text><text x="390.8" y="520" class="ax" text-anchor="middle">Wk 8</text><text x="474.5" y="520" class="ax" text-anchor="middle">Wk 10</text><text x="558.2" y="520" class="ax" text-anchor="middle">Wk 12</text><text x="328" y="351" class="t3" font-size="15" text-anchor="middle">🏁 Lights out Monday Oct 5, 2026. First lap results Friday after the close.</text>
+<text x="28" y="546" class="t3" font-size="11.5">Pass/fail at week 26: beat QQQ after costs. Bitcoin and SMH are for context. Real account · % only · not financial advice.</text>
+</svg>
