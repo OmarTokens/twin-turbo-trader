@@ -22,10 +22,24 @@ A live, public experiment: can a Claude agent following fixed momentum rules bea
 | Week | Week ending | Twin Turbo (week) | QQQ (week) | Since start | QQQ | Bitcoin | SMH | Same 62 stocks | Trades | Closed W/L | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 0 | Oct 2, 2026 | — | — | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | — | — | 🏁 On the grid |
+| 1 | Oct 9, 2026 | +1.2% | +0.2% | +1.2% | +0.2% | −2.5% | −4.3% | +2.4% | 9 | 2/3 | ✅ Within expected range |
 
 ## 🏁 Pit Reports
 
-*Newest first. First report: Friday Oct 9.*
+*Newest first.*
+
+### 🏁 Lap 1 Pit Report · week ending Oct 9
+
+🟥🟩🟥🟩🟥 · **2 of 5 closed trades won** (after costs)
+
+- **What happened:** Twin Turbo **+1.2%** vs QQQ **+0.2%**. Transition week: the old holdings were swapped for the Boomer top 5. Most of the gain came on Friday, when MRNA jumped about 13% in a day.
+- **Best / worst:** best AVGO 💥 **+3.5%**, worst GDX 💥 **−4.5%** (both legacy positions sold Monday as the rules took over). Still open: MRNA 💥 about **+14%** vs entry.
+- **Lesson:** a good first lap, but the plain "same 62 stocks" basket did better (**+2.4%**) because 37–50% of the account sat in cash all week. Idle cash is a drag on a rising market.
+
+| | This week | Since start |
+|---|---|---|
+| 💥 Boomer | ≈ +1.2 pts | ≈ +1.2 pts |
+| ⚡ Booster | 0.0 pts (no fills) | 0.0 pts |
 
 ---
 

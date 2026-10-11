@@ -12,8 +12,18 @@ Twin Turbo has been trading a **real (small) account** under exactly these rules
 ![Twin Turbo live scoreboard](live/scoreboard.svg)
 
 <!-- PIT-REPORT:START -->
-### 🏁 Pit Report
-*Lights out Monday Oct 5. First lap results arrive Friday Oct 9 after the close.*
+### 🏁 Lap 1 Pit Report · week ending Oct 9
+
+🟥🟩🟥🟩🟥 · **2 of 5 closed trades won** (after costs)
+
+- **What happened:** Twin Turbo **+1.2%** vs QQQ **+0.2%**. Transition week: the old holdings were swapped for the Boomer top 5. Most of the gain came on Friday, when MRNA jumped about 13% in a day.
+- **Best / worst:** best AVGO 💥 **+3.5%**, worst GDX 💥 **−4.5%** (both legacy positions sold Monday as the rules took over). Still open: MRNA 💥 about **+14%** vs entry.
+- **Lesson:** a good first lap, but the plain "same 62 stocks" basket did better (**+2.4%**) because 37–50% of the account sat in cash all week. Idle cash is a drag on a rising market.
+
+| | This week | Since start |
+|---|---|---|
+| 💥 Boomer | ≈ +1.2 pts | ≈ +1.2 pts |
+| ⚡ Booster | 0.0 pts (no fills) | 0.0 pts |
 <!-- PIT-REPORT:END -->
 
 **[📒 Full race log →](LIVE.md)** · 🧪 Pass/fail at week 26: beat QQQ after costs. Bitcoin and SMH are shown for context.
