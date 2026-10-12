@@ -120,6 +120,8 @@ This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 
 
 `AAPL` · `ABNB` · `ADBE` · `ADSK` · `AFRM` · `AMAT` · `AMD` · `AMGN` · `AMZN` · `ASML` · `AVGO` · `BKNG` · `COIN` · `COST` · `CRWD` · `CSCO` · `DDOG` · `DKNG` · `DOCU` · `DXCM` · `EBAY` · `FTNT` · `GOOGL` · `HOOD` · `INTC` · `INTU` · `ISRG` · `KLAC` · `LCID` · `LRCX` · `LULU` · `MELI` · `META` · `MRNA` · `MRVL` · `MSFT` · `MSTR` · `MU` · `NET` · `NFLX` · `NVDA` · `OKTA` · `PANW` · `PDD` · `PEP` · `PLTR` · `PYPL` · `QCOM` · `RBLX` · `RIVN` · `ROKU` · `SBUX` · `SHOP` · `SMCI` · `SNOW` · `SNPS` · `SOFI` · `TSLA` · `TXN` · `UPST` · `WDAY` · `ZM` · `ZS`
 
+🔎 **Live-test note:** the live account runs **62** of these. PLTR is removed (the owner skips defense names). The backtest below used all 63, and PLTR was one of its biggest winners, so the live test starts without one of the backtest's best names.
+
 ✂️ **Make your own call:** remove anything you don't want to own (some people skip defense, crypto, or China names). Keep it **50+ names** and **decide before you look at recent charts**.
 
 ---
@@ -224,12 +226,13 @@ When asked to schedule: weekdays at about 8:50 am ET, plus the Friday review in 
 """Twin Turbo engine: 70% Boomer (weekly momentum top-5) + 30% Booster (dip-buys in top-15 momentum names).
 
 Usage:
-  python3 v4_engine.py --prices prices_map.json --universe v4_universe.json --state v4_state.json \
+  python3 engine.py --prices prices_map.json --universe universe.json --state state.json \
       --account account.json --today YYYY-MM-DD [--boomer-day]
 
 prices_map.json : {"TICKER": "/path/to/ibkr_price_history.json", ...}  (IBKR get_price_history ONE_DAY output; include QQQ)
+universe.json   : {"universe": ["AAPL", "ABNB", ...]}  (the list above, minus anything you removed)
 account.json    : {"equity": 5000.0, "cash": 300.0, "positions": {"MU": {"qty": 0.8, "avg": 1052.35}, ...}}
-v4_state.json   : {"boomer": ["MU", ...], "booster": {"NVDA": {"entry": 180.1, "date": "2026-10-05"}}, "last_boomer_rebalance": "YYYY-MM-DD"}
+state.json      : {"boomer": ["MU", ...], "booster": {"NVDA": {"entry": 180.1, "date": "2026-10-05"}}, "last_boomer_rebalance": "YYYY-MM-DD"}
 Prints a JSON plan (orders + reasons). Never places orders.
 """
 import json, argparse, math
