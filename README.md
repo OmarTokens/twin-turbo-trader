@@ -1,74 +1,74 @@
-# 🏎️ TWIN TURBO: a two-engine momentum trading agent
+# Twin Turbo
 
-### *Claude Cowork 🤝 Interactive Brokers · 💥 Boomer rides the leaders, ⚡ Booster buys their dips.*
+A two-engine momentum trading agent built with Claude Cowork and Interactive Brokers. Boomer follows the market's leaders; Booster buys their short dips.
 
-**Twin Turbo** 🤖 runs before every market open, does the math, writes your 📝 order tickets, and sends you a 📬 fun email.
-**You approve every trade yourself in IBKR.** The agent never pulls the trigger. 🔒
+**Twin Turbo** runs before every market open, does the math, writes your order tickets, and sends you a fun email.
+**You approve every trade yourself in IBKR.** The agent never pulls the trigger.
 
-## 🔴 Live: does it actually work?
+## Live: does it actually work?
 
 Twin Turbo has been trading a **real (small) account** under exactly these rules since **Oct 5, 2026**. The scoreboard updates every Friday after the close, **% only**.
 
 ![Twin Turbo live scoreboard](live/scoreboard.svg)
 
 <!-- PIT-REPORT:START -->
-### 🏁 Lap 1 Pit Report · week ending Oct 9
+### Week 1 report · week ending Oct 9
 
-🟥🟩🟥🟩🟥 · **2 of 5 closed trades won** (after costs)
+**2 of 5 closed trades won** (after costs; oldest to newest: L W L W L)
 
 - **What happened:** Twin Turbo **+1.2%** vs QQQ **+0.2%**. Transition week: the old holdings were swapped for the Boomer top 5. Most of the gain came on Friday, when MRNA jumped about 13% in a day.
-- **Best / worst:** best AVGO 💥 **+3.5%**, worst GDX 💥 **−4.5%** (both legacy positions sold Monday as the rules took over). Still open: MRNA 💥 about **+14%** vs entry.
-- **Lesson:** a good first lap, but the plain "same 62 stocks" basket did better (**+2.4%**) because 37–50% of the account sat in cash all week. Idle cash is a drag on a rising market.
+- **Best / worst:** best AVGO **+3.5%**, worst GDX **−4.5%** (both legacy positions sold Monday as the rules took over). Still open: MRNA about **+14%** vs entry.
+- **Lesson:** a good first week, but the plain "same 62 stocks" basket did better (**+2.4%**) because 37–50% of the account sat in cash all week. Idle cash is a drag on a rising market.
 
 | | This week | Since start |
 |---|---|---|
-| 💥 Boomer | ≈ +1.2 pts | ≈ +1.2 pts |
-| ⚡ Booster | 0.0 pts (no fills) | 0.0 pts |
+| Boomer | ≈ +1.2 pts | ≈ +1.2 pts |
+| Booster | 0.0 pts (no fills) | 0.0 pts |
 <!-- PIT-REPORT:END -->
 
-**[📒 Full race log →](LIVE.md)** · 🧪 Pass/fail at week 26: beat QQQ after costs. Bitcoin and SMH are shown for context.
+**[Full weekly log →](LIVE.md)** · Pass/fail at week 26: beat QQQ after costs. Bitcoin and SMH are shown for context.
 
-> 🎮 **A trading sandbox, not your retirement plan.** Use a **separate, small account** you're OK playing with.
+> **A trading sandbox, not your retirement plan.** Use a **separate, small account** you're OK playing with.
 >
-> ⚠️ **Not financial advice.** You can lose money (the backtest below had a −34% drawdown). Read the [fine print](#️-the-fine-print). 🧪 Start on a paper account.
+> **Not financial advice.** You can lose money (the backtest below had a −34% drawdown). Read the [fine print](#the-fine-print). Start on a paper account.
 
 ---
 
-## 🧠 Why two engines?
+## Why two engines?
 
 We tested a lot of "fast trading" ideas, and most of them **lost money after costs**: tight stops, 5-day swing trades, intraday dip-buying. The two things that held up on a fair test were:
 
 | Engine | Share | What it does | Pace |
 |---|---|---|---|
-| 💥 **BOOMER** | **70%** | Every Monday it holds the **5 strongest stocks** by 3-month return. It keeps a winner while it stays in the top 10. | ~1–2 trades/week |
-| ⚡ **BOOSTER** | **30%** | Buys **sharp 1–3 day dips in the top-15 leaders**, then sells into the bounce. Up to 3 slots. | ~2–3 trades/week |
+| **BOOMER** | **70%** | Every Monday it holds the **5 strongest stocks** by 3-month return. It keeps a winner while it stays in the top 10. | ~1–2 trades/week |
+| **BOOSTER** | **30%** | Buys **sharp 1–3 day dips in the top-15 leaders**, then sells into the bounce. Up to 3 slots. | ~2–3 trades/week |
 
-**Together: about 4 trades a week**, all from rules, no vibes. 🎯
+**Together: about 4 trades a week**, all from rules, no vibes.
 
 ---
 
-## ⚡ Launch sequence (about 15 min)
+## Launch sequence (about 15 min)
 
 | Step | Do this |
 |---|---|
-| 1️⃣ 🔌 | **Connect** in Claude (Settings → Connectors): **Interactive Brokers** (required) and **Gmail** (for the email; optional) |
-| 2️⃣ 🗂️ | **Create a Cowork project.** Name it after your agent. |
-| 3️⃣ 📋 | **Paste this** into a new session: *"Set me up from this guide: https://github.com/OmarTokens/twin-turbo-trader. Ask me the 3 questions, save the engine and my config to the project, then do a dry run with a sample email. No orders yet."* |
-| 4️⃣ ⏰ | **Say "schedule it."** It runs weekdays at **~8:50 am ET** (pre-market). Turn on **"Automatically approve"** in the scheduled task's settings if it's offered. |
-| 5️⃣ ☕ | **When the email lands (~9:15):** open IBKR → Orders → Instructions, **Submit** ✅ or **Delete** ❌ each one before or during the trading day |
+| 1 | **Connect** in Claude (Settings → Connectors): **Interactive Brokers** (required) and **Gmail** (for the email; optional) |
+| 2 | **Create a Cowork project.** Name it after your agent. |
+| 3 | **Paste this** into a new session: *"Set me up from this guide: https://github.com/OmarTokens/twin-turbo-trader. Ask me the 3 questions, save the engine and my config to the project, then do a dry run with a sample email. No orders yet."* |
+| 4 | **Say "schedule it."** It runs weekdays at **~8:50 am ET** (pre-market). Turn on **"Automatically approve"** in the scheduled task's settings if it's offered. |
+| 5 | **When the email lands (~9:15):** open IBKR → Orders → Instructions, **Submit** or **Delete** each one before or during the trading day |
 
-> 💡 **Check your IBKR commission plan.** On a small account, a $1 minimum per order eats the Booster's edge. **Tiered** ($0.35 minimum) added about **+30 points** in the test. Lite ($0) helps a bit more.
+> **Check your IBKR commission plan.** On a small account, a $1 minimum per order eats the Booster's edge. **Tiered** ($0.35 minimum) added about **+30 points** in the test. Lite ($0) helps a bit more.
 
 ---
 
-## 🎯 Just 3 questions
+## Just 3 questions
 
-### 1 · 💰 How much?
+### 1 · How much?
 The amount in your trading account: $____. *A paper account or $2–10k is plenty to learn.*
 
-### 2 · 🎚️ Which mix?
+### 2 · Which mix?
 
-| | 🏎️ **Twin Turbo** *(default)* | 💥 **Full Boomer** | ⚖️ **Even Split** |
+| | **Twin Turbo** *(default)* | **Full Boomer** | **Even Split** |
 |---|---|---|---|
 | Mix | 70% Boomer / 30% Booster | 100% Boomer | 50% / 50% |
 | Trades/week | ~4 | ~1.6 | ~5 |
@@ -76,131 +76,131 @@ The amount in your trading account: $____. *A paper account or $2–10k is plent
 | Max drawdown* | −34% | −39% | not re-tested |
 | For you if… | You want action + the main engine | You want the max and can stomach big swings | You care more about activity than return |
 
-<sub>*Fair-universe backtest, tiered commissions. See [the evidence](#-the-evidence-and-its-limits).</sub>
+<sub>*Fair-universe backtest, tiered commissions. See [the evidence](#the-evidence-and-its-limits).</sub>
 
-### 3 · 🎤 Email vibe?
-🎤 Hype coach · 🏁 F1 race engineer · 📈 Wall St veteran · 🏄 Chill surfer · 🎙️ Sports commentator · 🏴‍☠️ Pirate · 🕶️ Secret agent · 🧊 Plain · ✍️ *invent your own*
+### 3 · Email vibe?
+ Hype coach · F1 race engineer · Wall St veteran · Chill surfer · Sports commentator · Pirate · Secret agent · Plain · *invent your own*
 
 ---
 
-## 💥 Boomer: the rules
+## Boomer: the rules
 
 | Rule | Setting |
 |---|---|
-| 🗓️ **When** | The first trading day of each week |
-| 📊 **Rank** | Every stock in the universe by **3-month return**. Only names **above their 50-day average** qualify. |
-| 🏆 **Hold** | The **top 5**, about 14% of the account each |
-| 🧲 **Keep** | A holding stays while it's still in the **top 10** (cuts pointless churn) |
-| 🚪 **Sell** | When it drops out of the top 10 or falls below its 50-day average |
-| 🌧️ **Bad weather** | If **QQQ is below its 200-day average**, hold only the top 2 and keep the rest in cash |
+| **When** | The first trading day of each week |
+| **Rank** | Every stock in the universe by **3-month return**. Only names **above their 50-day average** qualify. |
+| **Hold** | The **top 5**, about 14% of the account each |
+| **Keep** | A holding stays while it's still in the **top 10** (cuts pointless churn) |
+| **Sell** | When it drops out of the top 10 or falls below its 50-day average |
+| **Bad weather** | If **QQQ is below its 200-day average**, hold only the top 2 and keep the rest in cash |
 
-## ⚡ Booster: the rules
+## Booster: the rules
 
 | Rule | Setting |
 |---|---|
-| 🎯 **Hunting ground** | Only the **top-15 momentum names** that are above their 200-day average (dips in leaders, not falling knives) |
-| 📉 **Signal** | **RSI(2) below 10** (a sharp 1–3 day selloff) |
-| 💵 **Entry** | A **limit buy 1% below yesterday's close**, DAY order. If it doesn't fill, no trade. That's on purpose. |
-| 📦 **Size** | Up to **3 slots**, about 10% of the account each |
-| 🚀 **Exit** | When **RSI(2) climbs above 70** (the bounce is done) |
-| ⏱️ **Time stop** | After **10 trading days**, regardless |
-| 🛑 **Stop** | A close **8% below entry** (the agent also sets a price alert) |
-| 📅 **Earnings** | No dip-buys within 2 trading days of a report |
+| **Hunting ground** | Only the **top-15 momentum names** that are above their 200-day average (dips in leaders, not falling knives) |
+| **Signal** | **RSI(2) below 10** (a sharp 1–3 day selloff) |
+| **Entry** | A **limit buy 1% below yesterday's close**, DAY order. If it doesn't fill, no trade. That's on purpose. |
+| **Size** | Up to **3 slots**, about 10% of the account each |
+| **Exit** | When **RSI(2) climbs above 70** (the bounce is done) |
+| **Time stop** | After **10 trading days**, regardless |
+| **Stop** | A close **8% below entry** (the agent also sets a price alert) |
+| **Earnings** | No dip-buys within 2 trading days of a report |
 
-## 🧯 Brakes
+## Brakes
 
 - **−20% from the peak** → no new Booster buys
 - **−35% from the peak** → the agent proposes going all-cash and waits for you
 
-## 🔧 Live rule changes (v4.1, from Oct 12, 2026)
+## Live rule changes (v4.1, from Oct 12, 2026)
 
 The rules above are **v4, the version that was backtested**. After week 1, the live account switched to **v4.1**. The live scoreboard tests v4.1, and **v4.1 has not been backtested yet**.
 
 | What | v4 (guide, backtested) | v4.1 (live account) | Why |
 |---|---|---|---|
-| 🗺️ Universe | 62 names (2022 list) | **84 names**: the 62 plus 22 current leaders (ARM, DELL, HPE, TEAM, CIEN, COHR, P, ALAB, ANET, CEG, VST, CRM, NOW, ORCL, UBER, APP, VRT, TSM, LLY, HIMS, RKLB, IONQ) | Search wider. ⚠️ This adds hindsight: these names were picked *after* they ran. |
-| 🎯 Booster hunting ground | Top 15 | **Top 20** | More dip candidates |
-| 📉 Booster signal | RSI(2) < 10 | **RSI(2) < 15** | Fewer near-misses |
-| 💵 Booster entry | Limit 1% *below* yesterday's close | **Limit 0.5% *above* yesterday's close** | In week 1, both Booster signals bounced before filling, so the 30% sleeve sat idle |
-| 📦 Boomer sizing | Size only new buys | **Top up any holding below 80% of target** every Monday | Undersized legacy positions dragged returns |
-| 🧪 Lab (new) | — | Idle cash runs **one written theory at a time**: 1–2 positions, ~10% each, max 20% total, stop −8%, half off at +15%, 15-day time stop. Experiment #1: **large-cap breakouts** (20-day high on above-average volume). | The owner wants an *active* test bed for ideas, not parked cash. Verdict after 8–10 closed trades. |
-| 🧾 Taxes (new) | — | **Wash-sale guard** (no rebuy within 32 days of a loss sale), **sell losers first** on ties, **December harvest review** | Keep harvested losses valid in a taxable account |
+| Universe | 62 names (2022 list) | **84 names**: the 62 plus 22 current leaders (ARM, DELL, HPE, TEAM, CIEN, COHR, P, ALAB, ANET, CEG, VST, CRM, NOW, ORCL, UBER, APP, VRT, TSM, LLY, HIMS, RKLB, IONQ) | Search wider. This adds hindsight: these names were picked *after* they ran. |
+| Booster hunting ground | Top 15 | **Top 20** | More dip candidates |
+| Booster signal | RSI(2) < 10 | **RSI(2) < 15** | Fewer near-misses |
+| Booster entry | Limit 1% *below* yesterday's close | **Limit 0.5% *above* yesterday's close** | In week 1, both Booster signals bounced before filling, so the 30% sleeve sat idle |
+| Boomer sizing | Size only new buys | **Top up any holding below 80% of target** every Monday | Undersized legacy positions dragged returns |
+| Lab (new) | — | Idle cash runs **one written theory at a time**: 1–2 positions, ~10% each, max 20% total, stop −8%, half off at +15%, 15-day time stop. Experiment #1: **large-cap breakouts** (20-day high on above-average volume). | The owner wants an *active* test bed for ideas, not parked cash. Verdict after 8–10 closed trades. |
+| Taxes (new) | — | **Wash-sale guard** (no rebuy within 32 days of a loss sale), **sell losers first** on ties, **December harvest review** | Keep harvested losses valid in a taxable account |
 
 **Unchanged:** Boomer ranking and exits, Booster exits, brakes, instructions-only, long-only, no defense names.
 
-🧪 **Honest note:** changing rules after one week is exactly what the golden rule warns against. These are execution fixes plus an explicitly labeled experiment. The week-26 verdict will say which version earned what.
+ **Honest note:** changing rules after one week is exactly what the golden rule warns against. These are execution fixes plus an explicitly labeled experiment. The week-26 verdict will say which version earned what.
 
 ---
 
-## 🗺️ The universe: 63 names
+## The universe: 63 names
 
-This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 plus that year's hot retail names), **including the ones that crashed afterwards**. Don't add today's hottest stock; that's how backtests lie. 🙃
+This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 plus that year's hot retail names), **including the ones that crashed afterwards**. Don't add today's hottest stock; that's how backtests lie.
 
 `AAPL` · `ABNB` · `ADBE` · `ADSK` · `AFRM` · `AMAT` · `AMD` · `AMGN` · `AMZN` · `ASML` · `AVGO` · `BKNG` · `COIN` · `COST` · `CRWD` · `CSCO` · `DDOG` · `DKNG` · `DOCU` · `DXCM` · `EBAY` · `FTNT` · `GOOGL` · `HOOD` · `INTC` · `INTU` · `ISRG` · `KLAC` · `LCID` · `LRCX` · `LULU` · `MELI` · `META` · `MRNA` · `MRVL` · `MSFT` · `MSTR` · `MU` · `NET` · `NFLX` · `NVDA` · `OKTA` · `PANW` · `PDD` · `PEP` · `PLTR` · `PYPL` · `QCOM` · `RBLX` · `RIVN` · `ROKU` · `SBUX` · `SHOP` · `SMCI` · `SNOW` · `SNPS` · `SOFI` · `TSLA` · `TXN` · `UPST` · `WDAY` · `ZM` · `ZS`
 
-🔎 **Live-test note:** the live account started with **62** of these and has run an **84-name** list since Oct 12 (see *Live rule changes* above). PLTR is removed (the owner skips defense names). The backtest below used all 63, and PLTR was one of its biggest winners, so the live test starts without one of the backtest's best names.
+ **Live-test note:** the live account started with **62** of these and has run an **84-name** list since Oct 12 (see *Live rule changes* above). PLTR is removed (the owner skips defense names). The backtest below used all 63, and PLTR was one of its biggest winners, so the live test starts without one of the backtest's best names.
 
-✂️ **Make your own call:** remove anything you don't want to own (some people skip defense, crypto, or China names). Keep it **50+ names** and **decide before you look at recent charts**.
+ **Make your own call:** remove anything you don't want to own (some people skip defense, crypto, or China names). Keep it **50+ names** and **decide before you look at recent charts**.
 
 ---
 
-## 📬 The Pit Report
+## The daily email
 
-**Sample 🏁 (F1 race engineer):**
-> **Subject: 🏁 Twin Turbo — Mon Oct 5 — 3 to submit**
+**Sample ("F1 race engineer" voice):**
+> **Subject: Twin Turbo — Mon Oct 5 — 3 to submit**
 >
-> Box, box! Monday is pit-stop day for Boomer. QQQ is above its 200-day line: track is dry. ☀️
+> Box, box! Monday is pit-stop day for Boomer. QQQ is above its 200-day line: track is dry.
 >
-> 🔴 **SELL — XYZ** · BOOMER · fell out of the top 10 · `qty 2.1 · limit $—`
-> 🟢 **BUY — ABC** · BOOMER · momentum #2, 3m +48% · `qty 1.4 · limit $—`
-> ⚡ **BUY — DEF** · BOOSTER · RSI(2) 4, a dip in a top-15 leader · `qty 3.0 · limit $— (−1%) · stop −8% · exit RSI(2) > 70 or 10 days`
+> **SELL — XYZ** · BOOMER · fell out of the top 10 · `qty 2.1 · limit $—`
+> **BUY — ABC** · BOOMER · momentum #2, 3m +48% · `qty 1.4 · limit $—`
+> **BUY — DEF** · BOOSTER · RSI(2) 4, a dip in a top-15 leader · `qty 3.0 · limit $— (−1%) · stop −8% · exit RSI(2) > 70 or 10 days`
 >
-> 🏎️ **Garage:** 7 holdings · week +1.2% vs QQQ +0.8%
-> 👀 **On the radar:** GHI (RSI(2) 14), JKL (RSI(2) 19)
+> **Garage:** 7 holdings · week +1.2% vs QQQ +0.8%
+> **On the radar:** GHI (RSI(2) 14), JKL (RSI(2) 19)
 >
-> Tickets are waiting in IBKR. Submit or shred them. — **Twin Turbo** 🏎️
+> Tickets are waiting in IBKR. Submit or shred them. — **Twin Turbo**
 > <sub>Automated output from your own tool, not financial advice. You make every call.</sub>
 
-**Remix anytime:** `email vibe pirate` 🏴‍☠️ · `email shorter` · `email no jokes`
+**Remix anytime:** `email vibe pirate` · `email shorter` · `email no jokes`
 
 ---
 
-## 🎛️ Mission control
+## Mission control
 
 | If… | Say |
 |---|---|
-| 👀 You want a quick picture | `status` |
-| 🤔 Why this trade (or none)? | `explain <TICKER>` / `why no trades?` |
-| 🎚️ Change the mix | `mix 70/30` · `mix 100/0` · `mix 50/50` |
-| ✂️ Edit the universe | `remove <TICKER>` *(adding is discouraged; see above)* |
-| 🏖️ Take a break | `pause` / `resume` |
-| 📈 Weekly check-up | `review` *(automatic every Friday)* |
+| You want a quick picture | `status` |
+| Why this trade (or none)? | `explain <TICKER>` / `why no trades?` |
+| Change the mix | `mix 70/30` · `mix 100/0` · `mix 50/50` |
+| Edit the universe | `remove <TICKER>` *(adding is discouraged; see above)* |
+| Take a break | `pause` / `resume` |
+| Weekly check-up | `review` *(automatic every Friday)* |
 
-🏆 **Golden rule:** **don't tweak for 12 weeks.** Momentum has long cold spells, and the big winners come rarely. Bailing after a bad month is how this strategy loses.
+ **Golden rule:** **don't tweak for 12 weeks.** Momentum has long cold spells, and the big winners come rarely. Bailing after a bad month is how this strategy loses.
 
 ---
 
-## 📊 The evidence (and its limits)
+## The evidence (and its limits)
 
 **Setup:** daily bars from IBKR, Aug 1 2022 → Oct 2 2026, a $4,010 start, 0.1% slippage each way, signals on the prior close, trades the next day.
 
 | Strategy | Total | Max drawdown | Trades/week |
 |---|---|---|---|
-| 🏎️ **70% Boomer + 30% Booster** (tiered commissions) | **+259%** | −34% | 4.2 |
+| **70% Boomer + 30% Booster** (tiered commissions) | **+259%** | −34% | 4.2 |
 | 70/30 with $1-minimum commissions | +230% | −35% | 4.2 |
-| 💥 100% Boomer (top 5) | +325% | −39% | 1.6 |
-| ⚡ 100% Booster | +75% | −33% | 2.6 |
+| 100% Boomer (top 5) | +325% | −39% | 1.6 |
+| 100% Booster | +75% | −33% | 2.6 |
 | QQQ held | +138% | −23% | – |
-| ❌ Our earlier fast swing rules (3-month test) | −15% | −20% | 9 |
+| Our earlier fast swing rules (3-month test) | −15% | −20% | 9 |
 
 **By year (70/30):**
 
 | | 2022 (Aug–Dec) | 2023 | 2024 | 2025 | 2026 YTD |
 |---|---|---|---|---|---|
-| 🏎️ Twin Turbo | −6.5% | +44.7% | +46.2% | +15.1% | +57.5% |
+| Twin Turbo | −6.5% | +44.7% | +46.2% | +15.1% | +57.5% |
 | QQQ | −15.6% | +53.8% | +24.8% | +20.2% | +22.0% |
 
-**Read this before you get excited:** 🧐
+**Read this before you get excited:**
 - It **beat QQQ in only 3 of 5 periods.** It lagged in 2023 and 2025.
 - **A few giant winners did the heavy lifting** (PLTR, SMCI, NVDA, MRVL, MU). Without the top 3, Boomer trailed QQQ. Miss the next big runner and this is just a volatile index fund.
 - The Booster rules were picked after trying 8 variants. The winner was positive in both the design (2022–24) and the holdout (2025–26) periods, but expect some overfitting.
@@ -209,7 +209,7 @@ This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 
 
 ---
 
-## 🤖 The agent's rulebook
+## The agent's rulebook
 
 <details>
 <summary><b>Agent: read this section and follow it exactly.</b></summary>
@@ -375,7 +375,7 @@ if __name__ == '__main__':
 
 ---
 
-## ⚖️ The fine print
+## The fine print
 
 *Short version: this is a free, do-it-yourself template. You run it, you decide, you own the results.*
 
@@ -393,4 +393,4 @@ By using this guide, you accept these terms.
 
 ---
 
-*🏎️ Make it yours: rename the agent, trim the universe, pick an email vibe. Then leave the rules alone for 12 weeks and let the numbers talk.* 🏁
+*Make it yours: rename the agent, trim the universe, pick an email vibe. Then leave the rules alone for 12 weeks and let the numbers talk.*
