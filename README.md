@@ -112,6 +112,24 @@ The amount in your trading account: $____. *A paper account or $2–10k is plent
 - **−20% from the peak** → no new Booster buys
 - **−35% from the peak** → the agent proposes going all-cash and waits for you
 
+## 🔧 Live rule changes (v4.1, from Oct 12, 2026)
+
+The rules above are **v4, the version that was backtested**. After week 1, the live account switched to **v4.1**. The live scoreboard tests v4.1, and **v4.1 has not been backtested yet**.
+
+| What | v4 (guide, backtested) | v4.1 (live account) | Why |
+|---|---|---|---|
+| 🗺️ Universe | 62 names (2022 list) | **84 names**: the 62 plus 22 current leaders (ARM, DELL, HPE, TEAM, CIEN, COHR, P, ALAB, ANET, CEG, VST, CRM, NOW, ORCL, UBER, APP, VRT, TSM, LLY, HIMS, RKLB, IONQ) | Search wider. ⚠️ This adds hindsight: these names were picked *after* they ran. |
+| 🎯 Booster hunting ground | Top 15 | **Top 20** | More dip candidates |
+| 📉 Booster signal | RSI(2) < 10 | **RSI(2) < 15** | Fewer near-misses |
+| 💵 Booster entry | Limit 1% *below* yesterday's close | **Limit 0.5% *above* yesterday's close** | In week 1, both Booster signals bounced before filling, so the 30% sleeve sat idle |
+| 📦 Boomer sizing | Size only new buys | **Top up any holding below 80% of target** every Monday | Undersized legacy positions dragged returns |
+| 🧪 Lab (new) | — | Idle cash runs **one written theory at a time**: 1–2 positions, ~10% each, max 20% total, stop −8%, half off at +15%, 15-day time stop. Experiment #1: **large-cap breakouts** (20-day high on above-average volume). | The owner wants an *active* test bed for ideas, not parked cash. Verdict after 8–10 closed trades. |
+| 🧾 Taxes (new) | — | **Wash-sale guard** (no rebuy within 32 days of a loss sale), **sell losers first** on ties, **December harvest review** | Keep harvested losses valid in a taxable account |
+
+**Unchanged:** Boomer ranking and exits, Booster exits, brakes, instructions-only, long-only, no defense names.
+
+🧪 **Honest note:** changing rules after one week is exactly what the golden rule warns against. These are execution fixes plus an explicitly labeled experiment. The week-26 verdict will say which version earned what.
+
 ---
 
 ## 🗺️ The universe: 63 names
@@ -120,7 +138,7 @@ This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 
 
 `AAPL` · `ABNB` · `ADBE` · `ADSK` · `AFRM` · `AMAT` · `AMD` · `AMGN` · `AMZN` · `ASML` · `AVGO` · `BKNG` · `COIN` · `COST` · `CRWD` · `CSCO` · `DDOG` · `DKNG` · `DOCU` · `DXCM` · `EBAY` · `FTNT` · `GOOGL` · `HOOD` · `INTC` · `INTU` · `ISRG` · `KLAC` · `LCID` · `LRCX` · `LULU` · `MELI` · `META` · `MRNA` · `MRVL` · `MSFT` · `MSTR` · `MU` · `NET` · `NFLX` · `NVDA` · `OKTA` · `PANW` · `PDD` · `PEP` · `PLTR` · `PYPL` · `QCOM` · `RBLX` · `RIVN` · `ROKU` · `SBUX` · `SHOP` · `SMCI` · `SNOW` · `SNPS` · `SOFI` · `TSLA` · `TXN` · `UPST` · `WDAY` · `ZM` · `ZS`
 
-🔎 **Live-test note:** the live account runs **62** of these. PLTR is removed (the owner skips defense names). The backtest below used all 63, and PLTR was one of its biggest winners, so the live test starts without one of the backtest's best names.
+🔎 **Live-test note:** the live account started with **62** of these and has run an **84-name** list since Oct 12 (see *Live rule changes* above). PLTR is removed (the owner skips defense names). The backtest below used all 63, and PLTR was one of its biggest winners, so the live test starts without one of the backtest's best names.
 
 ✂️ **Make your own call:** remove anything you don't want to own (some people skip defense, crypto, or China names). Keep it **50+ names** and **decide before you look at recent charts**.
 

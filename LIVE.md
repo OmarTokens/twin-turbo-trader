@@ -17,6 +17,12 @@ A live, public experiment: can a Claude agent following fixed momentum rules bea
 
 **Honest prior:** in the backtest, Twin Turbo beat QQQ in only **51%** of 13-week stretches and lagged chip stocks (SMH) in 60% of them. Long stretches behind are normal. That's why the verdict waits for week 26.
 
+## 🔧 Rule changes
+
+| From | Change |
+|---|---|
+| Week 2 (Mon Oct 12, 2026) | **v4 → v4.1:** 84-name universe, looser Booster entry (top 20, RSI(2) < 15, limit at prior close +0.5%), Monday top-ups, a **Lab** sleeve for one written experiment at a time, and tax rules (wash-sale guard, losers first, December review). v4.1 is not backtested. Week 1 ran pure v4. Details in the guide. |
+
 ## 📈 Weekly results
 
 | Week | Week ending | Twin Turbo (week) | QQQ (week) | Since start | QQQ | Bitcoin | SMH | Same 62 stocks | Trades | Closed W/L | Status |
