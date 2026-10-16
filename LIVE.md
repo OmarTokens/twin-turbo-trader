@@ -29,10 +29,25 @@ A live, public experiment: can a Claude agent following fixed momentum rules bea
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 0 | Oct 2, 2026 | — | — | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | — | — | Start |
 | 1 | Oct 9, 2026 | +1.2% | +0.2% | +1.2% | +0.2% | −2.5% | −4.3% | +2.4% | 9 | 2/3 | Within expected range |
+| 2 | Oct 16, 2026 | −9.0% | −5.5% | −7.9% | −5.3% | −3.4% | −14.4% | −3.3% | 8 | 0/3 | Below expected range |
 
 ## Weekly reports
 
 *Newest first.*
+
+### Week 2 report · week ending Oct 16
+
+**0 of 3 closed trades won** (after costs; oldest to newest: L L L)
+
+- **What happened:** Twin Turbo **−9.0%** vs QQQ **−5.5%**. A broad tech and chip sell-off (SMH −10.6% for the week) hit the high-beta Boomer holdings hardest: CRWD fell about 17% and MSTR about 11%, and SMCI was sold at a loss after closing below its 50-day average. Since start: **−7.9%** vs QQQ **−5.3%**, just below the expected range for week 2 (−7% to +10%).
+- **Best / worst:** no winners this week. Smallest loss NET (Boomer) **−2.2%**, sold Monday after dropping out of the top 10; worst SMCI (Boomer) **−20.9%**. MRVL (Booster) hit its stop at **−8.7%**. Still open: MRNA about **+11%** vs entry.
+- **Lesson:** momentum names fall harder than QQQ when the market turns, and both Booster dip-buys landed on day 1 of a multi-day drop. A "wait for a second down close" filter is proposed for a shadow test only; the live rules stay unchanged.
+
+| | This week | Since start |
+|---|---|---|
+| Boomer | ≈ −7.3 pts | ≈ −6.1 pts |
+| Booster | ≈ −1.3 pts | ≈ −1.3 pts |
+| Lab | ≈ −0.4 pts | ≈ −0.4 pts |
 
 ### Week 1 report · week ending Oct 9
 

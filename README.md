@@ -12,18 +12,19 @@ Twin Turbo has been trading a **real (small) account** under exactly these rules
 ![Twin Turbo live scoreboard](live/scoreboard.svg)
 
 <!-- PIT-REPORT:START -->
-### Week 1 report · week ending Oct 9
+### Week 2 report · week ending Oct 16
 
-**2 of 5 closed trades won** (after costs; oldest to newest: L W L W L)
+**0 of 3 closed trades won** (after costs; oldest to newest: L L L)
 
-- **What happened:** Twin Turbo **+1.2%** vs QQQ **+0.2%**. Transition week: the old holdings were swapped for the Boomer top 5. Most of the gain came on Friday, when MRNA jumped about 13% in a day.
-- **Best / worst:** best AVGO **+3.5%**, worst GDX **−4.5%** (both legacy positions sold Monday as the rules took over). Still open: MRNA about **+14%** vs entry.
-- **Lesson:** a good first week, but the plain "same 62 stocks" basket did better (**+2.4%**) because 37–50% of the account sat in cash all week. Idle cash is a drag on a rising market.
+- **What happened:** Twin Turbo **−9.0%** vs QQQ **−5.5%**. A broad tech and chip sell-off (SMH −10.6% for the week) hit the high-beta Boomer holdings hardest: CRWD fell about 17% and MSTR about 11%, and SMCI was sold at a loss after closing below its 50-day average. Since start: **−7.9%** vs QQQ **−5.3%**, just below the expected range for week 2 (−7% to +10%).
+- **Best / worst:** no winners this week. Smallest loss NET (Boomer) **−2.2%**, sold Monday after dropping out of the top 10; worst SMCI (Boomer) **−20.9%**. MRVL (Booster) hit its stop at **−8.7%**. Still open: MRNA about **+11%** vs entry.
+- **Lesson:** momentum names fall harder than QQQ when the market turns, and both Booster dip-buys landed on day 1 of a multi-day drop. A "wait for a second down close" filter is proposed for a shadow test only; the live rules stay unchanged.
 
 | | This week | Since start |
 |---|---|---|
-| Boomer | ≈ +1.2 pts | ≈ +1.2 pts |
-| Booster | 0.0 pts (no fills) | 0.0 pts |
+| Boomer | ≈ −7.3 pts | ≈ −6.1 pts |
+| Booster | ≈ −1.3 pts | ≈ −1.3 pts |
+| Lab | ≈ −0.4 pts | ≈ −0.4 pts |
 <!-- PIT-REPORT:END -->
 
 **[Full weekly log →](LIVE.md)** · Pass/fail at week 26: beat QQQ after costs. Bitcoin and SMH are shown for context.
