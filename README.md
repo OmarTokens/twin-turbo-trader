@@ -12,19 +12,19 @@ Twin Turbo has been trading a **real (small) account** under exactly these rules
 ![Twin Turbo live scoreboard](live/scoreboard.svg)
 
 <!-- PIT-REPORT:START -->
-### Week 2 report · week ending Oct 16
+### Week 3 report · week ending Oct 23
 
 **0 of 3 closed trades won** (after costs; oldest to newest: L L L)
 
-- **What happened:** Twin Turbo **−9.0%** vs QQQ **−5.5%**. A broad tech and chip sell-off (SMH −10.6% for the week) hit the high-beta Boomer holdings hardest: CRWD fell about 17% and MSTR about 11%, and SMCI was sold at a loss after closing below its 50-day average. Since start: **−7.9%** vs QQQ **−5.3%**, just below the expected range for week 2 (−7% to +10%).
-- **Best / worst:** no winners this week. Smallest loss NET (Boomer) **−2.2%**, sold Monday after dropping out of the top 10; worst SMCI (Boomer) **−20.9%**. MRVL (Booster) hit its stop at **−8.7%**. Still open: MRNA about **+11%** vs entry.
-- **Lesson:** momentum names fall harder than QQQ when the market turns, and both Booster dip-buys landed on day 1 of a multi-day drop. A "wait for a second down close" filter is proposed for a shadow test only; the live rules stay unchanged.
+- **What happened:** Twin Turbo **+2.7%** vs QQQ **−0.8%**. A rebound week for the account while QQQ slipped. The main driver was ZS, bought by the Boomer rotation on Monday, which gained about 19% by Friday. Since start: **−5.4%** vs QQQ **−6.0%**, ahead of QQQ for the first time since week 1 and within the expected range for week 3 (−8% to +12%).
+- **Best / worst:** all three closed trades were Monday Boomer sells from the weekly ranking. Best AMD (Boomer) about flat (**−0.1%** after costs); worst CRWD (Boomer) **−15.0%**; MSTR (Boomer) **−9.4%**. Still open: ZS (Boomer) about **+19%** vs entry, SNPS (Booster) about **−6%**.
+- **Lesson:** a mechanical exit sells near lows sometimes: CRWD gained about 14% after it was sold. The weekly ranking is the exit by design, so the rule stays. Separately, about 39% of the account ended the week in cash because two Boomer picks were not bought; idle cash remains the main drag to fix in execution, not in the rules.
 
 | | This week | Since start |
 |---|---|---|
-| Boomer | ≈ −7.3 pts | ≈ −6.1 pts |
-| Booster | ≈ −1.3 pts | ≈ −1.3 pts |
-| Lab | ≈ −0.4 pts | ≈ −0.4 pts |
+| Boomer | ≈ +3.3 pts | ≈ −2.8 pts |
+| Booster | ≈ −0.6 pts | ≈ −2.0 pts |
+| Lab | ≈ 0.0 pts | ≈ −0.4 pts |
 <!-- PIT-REPORT:END -->
 
 **[Full weekly log →](LIVE.md)** · Pass/fail at week 26: beat QQQ after costs. Bitcoin and SMH are shown for context.

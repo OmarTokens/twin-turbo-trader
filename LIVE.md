@@ -30,10 +30,25 @@ A live, public experiment: can a Claude agent following fixed momentum rules bea
 | 0 | Oct 2, 2026 | — | — | 0.0% | 0.0% | 0.0% | 0.0% | 0.0% | — | — | Start |
 | 1 | Oct 9, 2026 | +1.2% | +0.2% | +1.2% | +0.2% | −2.5% | −4.3% | +2.4% | 9 | 2/3 | Within expected range |
 | 2 | Oct 16, 2026 | −9.0% | −5.5% | −7.9% | −5.3% | −3.4% | −14.4% | −3.3% | 8 | 0/3 | Below expected range |
+| 3 | Oct 23, 2026 | +2.7% | −0.8% | −5.4% | −6.0% | −3.7% | −16.4% | −1.8% | 5 | 0/3 | Within expected range |
 
 ## Weekly reports
 
 *Newest first.*
+
+### Week 3 report · week ending Oct 23
+
+**0 of 3 closed trades won** (after costs; oldest to newest: L L L)
+
+- **What happened:** Twin Turbo **+2.7%** vs QQQ **−0.8%**. A rebound week for the account while QQQ slipped. The main driver was ZS, bought by the Boomer rotation on Monday, which gained about 19% by Friday. Since start: **−5.4%** vs QQQ **−6.0%**, ahead of QQQ for the first time since week 1 and within the expected range for week 3 (−8% to +12%).
+- **Best / worst:** all three closed trades were Monday Boomer sells from the weekly ranking. Best AMD (Boomer) about flat (**−0.1%** after costs); worst CRWD (Boomer) **−15.0%**; MSTR (Boomer) **−9.4%**. Still open: ZS (Boomer) about **+19%** vs entry, SNPS (Booster) about **−6%**.
+- **Lesson:** a mechanical exit sells near lows sometimes: CRWD gained about 14% after it was sold. The weekly ranking is the exit by design, so the rule stays. Separately, about 39% of the account ended the week in cash because two Boomer picks were not bought; idle cash remains the main drag to fix in execution, not in the rules.
+
+| | This week | Since start |
+|---|---|---|
+| Boomer | ≈ +3.3 pts | ≈ −2.8 pts |
+| Booster | ≈ −0.6 pts | ≈ −2.0 pts |
+| Lab | ≈ 0.0 pts | ≈ −0.4 pts |
 
 ### Week 2 report · week ending Oct 16
 
