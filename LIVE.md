@@ -31,10 +31,26 @@ A live, public experiment: can a Claude agent following fixed momentum rules bea
 | 1 | Oct 9, 2026 | +1.2% | +0.2% | +1.2% | +0.2% | −2.5% | −4.3% | +2.4% | 9 | 2/3 | Within expected range |
 | 2 | Oct 16, 2026 | −9.0% | −5.5% | −7.9% | −5.3% | −3.4% | −14.4% | −3.3% | 8 | 0/3 | Below expected range |
 | 3 | Oct 23, 2026 | +2.7% | −0.8% | −5.4% | −6.0% | −3.7% | −16.4% | −1.8% | 5 | 0/3 | Within expected range |
+| 4 | Oct 30, 2026 | −1.9% | −2.0% | −7.2% | −7.9% | −9.2% | −17.1% | −4.6% | 8 | 2/1 | Within expected range |
 
 ## Weekly reports
 
 *Newest first.*
+
+### Week 4 report · week ending Oct 30
+
+**2 of 3 closed trades won** (after costs; oldest to newest: W W L)
+
+- **What happened:** Twin Turbo **−1.9%** vs QQQ **−2.0%**. A down week for tech that ended with a sharp Friday drop (QQQ about −3.5% on the day). The Boomer holdings carried most of the loss: CRM and DOCU, bought on Monday's rotation, ended the week about 8% and 4% below entry, and ZS gave back about 7%. Two Booster dip-buys that bounced and were sold on Tuesday offset part of it. Since start: **−7.2%** vs QQQ **−7.9%**, still slightly ahead of QQQ and within the expected range for week 4 (−8% to +17%), close to its lower edge.
+- **Best / worst:** best P (Booster) **+4.0%**, sold Tuesday once the bounce was done; SNPS (Booster) **+3.0%** the same day. Worst SHOP (Lab) **−12.2%**, sold Friday at its stop, which ends the first Lab experiment. Still open: MRNA (Boomer) about **+12%** vs entry, ZS (Boomer) about **+11%**, DOCU (Boomer) about **−4%**, CRM and TEAM (Boomer) about **−8%** each, WDAY (Booster, bought Friday) about flat.
+- **Lesson:** the Booster exits worked as designed, while the first Lab breakout trade failed and was closed at its stop; one Lab result says little either way. Separately, an expired Booster order from the week before filled on Monday (MSFT, about −1% by Friday), outside the rules. The fix is in execution: expired orders get cancelled at the broker, not only removed from the agent's notes.
+
+| | This week | Since start |
+|---|---|---|
+| Boomer | ≈ −2.8 pts | ≈ −5.6 pts |
+| Booster | ≈ +1.6 pts | ≈ −0.4 pts |
+| Lab | ≈ −0.6 pts | ≈ −1.0 pts |
+| Stray fill (MSFT) | ≈ −0.1 pts | ≈ −0.1 pts |
 
 ### Week 3 report · week ending Oct 23
 

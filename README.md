@@ -12,19 +12,20 @@ Twin Turbo has been trading a **real (small) account** under exactly these rules
 ![Twin Turbo live scoreboard](live/scoreboard.svg)
 
 <!-- PIT-REPORT:START -->
-### Week 3 report · week ending Oct 23
+### Week 4 report · week ending Oct 30
 
-**0 of 3 closed trades won** (after costs; oldest to newest: L L L)
+**2 of 3 closed trades won** (after costs; oldest to newest: W W L)
 
-- **What happened:** Twin Turbo **+2.7%** vs QQQ **−0.8%**. A rebound week for the account while QQQ slipped. The main driver was ZS, bought by the Boomer rotation on Monday, which gained about 19% by Friday. Since start: **−5.4%** vs QQQ **−6.0%**, ahead of QQQ for the first time since week 1 and within the expected range for week 3 (−8% to +12%).
-- **Best / worst:** all three closed trades were Monday Boomer sells from the weekly ranking. Best AMD (Boomer) about flat (**−0.1%** after costs); worst CRWD (Boomer) **−15.0%**; MSTR (Boomer) **−9.4%**. Still open: ZS (Boomer) about **+19%** vs entry, SNPS (Booster) about **−6%**.
-- **Lesson:** a mechanical exit sells near lows sometimes: CRWD gained about 14% after it was sold. The weekly ranking is the exit by design, so the rule stays. Separately, about 39% of the account ended the week in cash because two Boomer picks were not bought; idle cash remains the main drag to fix in execution, not in the rules.
+- **What happened:** Twin Turbo **−1.9%** vs QQQ **−2.0%**. A down week for tech that ended with a sharp Friday drop (QQQ about −3.5% on the day). The Boomer holdings carried most of the loss: CRM and DOCU, bought on Monday's rotation, ended the week about 8% and 4% below entry, and ZS gave back about 7%. Two Booster dip-buys that bounced and were sold on Tuesday offset part of it. Since start: **−7.2%** vs QQQ **−7.9%**, still slightly ahead of QQQ and within the expected range for week 4 (−8% to +17%), close to its lower edge.
+- **Best / worst:** best P (Booster) **+4.0%**, sold Tuesday once the bounce was done; SNPS (Booster) **+3.0%** the same day. Worst SHOP (Lab) **−12.2%**, sold Friday at its stop, which ends the first Lab experiment. Still open: MRNA (Boomer) about **+12%** vs entry, ZS (Boomer) about **+11%**, DOCU (Boomer) about **−4%**, CRM and TEAM (Boomer) about **−8%** each, WDAY (Booster, bought Friday) about flat.
+- **Lesson:** the Booster exits worked as designed, while the first Lab breakout trade failed and was closed at its stop; one Lab result says little either way. Separately, an expired Booster order from the week before filled on Monday (MSFT, about −1% by Friday), outside the rules. The fix is in execution: expired orders get cancelled at the broker, not only removed from the agent's notes.
 
 | | This week | Since start |
 |---|---|---|
-| Boomer | ≈ +3.3 pts | ≈ −2.8 pts |
-| Booster | ≈ −0.6 pts | ≈ −2.0 pts |
-| Lab | ≈ 0.0 pts | ≈ −0.4 pts |
+| Boomer | ≈ −2.8 pts | ≈ −5.6 pts |
+| Booster | ≈ +1.6 pts | ≈ −0.4 pts |
+| Lab | ≈ −0.6 pts | ≈ −1.0 pts |
+| Stray fill (MSFT) | ≈ −0.1 pts | ≈ −0.1 pts |
 <!-- PIT-REPORT:END -->
 
 **[Full weekly log →](LIVE.md)** · Pass/fail at week 26: beat QQQ after costs. Bitcoin and SMH are shown for context.
