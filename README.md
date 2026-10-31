@@ -1,74 +1,127 @@
 # Twin Turbo
 
-A two-engine momentum trading agent built with Claude Cowork and Interactive Brokers. Boomer follows the market's leaders; Booster buys their short dips.
+A Claude agent that trades momentum with fixed rules, in public. Two engines and a small lab, one real (small) account, every result shown in **% only**. The agent writes order instructions; **you approve every trade yourself in IBKR.**
 
-**Twin Turbo** runs before every market open, does the math, writes your order tickets, and sends you a fun email.
-**You approve every trade yourself in IBKR.** The agent never pulls the trigger.
-
-## Live: does it actually work?
-
-Twin Turbo has been trading a **real (small) account** under exactly these rules since **Oct 5, 2026**. The scoreboard updates every Friday after the close, **% only**.
+**Get the Friday update:** Watch → Custom → **Releases** · [Full weekly log](LIVE.md) · [Calm sibling: Value Cruiser →](https://github.com/OmarTokens/value-cruiser)
 
 ![Twin Turbo live scoreboard](live/scoreboard.svg)
 
+![Season 1, week by week vs QQQ](live/season.svg)
+
+## This week
+
 <!-- PIT-REPORT:START -->
-### Week 4 report · week ending Oct 30
-
-**2 of 3 closed trades won** (after costs; oldest to newest: W W L)
-
-- **What happened:** Twin Turbo **−1.9%** vs QQQ **−2.0%**. A down week for tech that ended with a sharp Friday drop (QQQ about −3.5% on the day). The Boomer holdings carried most of the loss: CRM and DOCU, bought on Monday's rotation, ended the week about 8% and 4% below entry, and ZS gave back about 7%. Two Booster dip-buys that bounced and were sold on Tuesday offset part of it. Since start: **−7.2%** vs QQQ **−7.9%**, still slightly ahead of QQQ and within the expected range for week 4 (−8% to +17%), close to its lower edge.
-- **Best / worst:** best P (Booster) **+4.0%**, sold Tuesday once the bounce was done; SNPS (Booster) **+3.0%** the same day. Worst SHOP (Lab) **−12.2%**, sold Friday at its stop, which ends the first Lab experiment. Still open: MRNA (Boomer) about **+12%** vs entry, ZS (Boomer) about **+11%**, DOCU (Boomer) about **−4%**, CRM and TEAM (Boomer) about **−8%** each, WDAY (Booster, bought Friday) about flat.
-- **Lesson:** the Booster exits worked as designed, while the first Lab breakout trade failed and was closed at its stop; one Lab result says little either way. Separately, an expired Booster order from the week before filled on Monday (MSFT, about −1% by Friday), outside the rules. The fix is in execution: expired orders get cancelled at the broker, not only removed from the agent's notes.
-
-| | This week | Since start |
-|---|---|---|
-| Boomer | ≈ −2.8 pts | ≈ −5.6 pts |
-| Booster | ≈ +1.6 pts | ≈ −0.4 pts |
-| Lab | ≈ −0.6 pts | ≈ −1.0 pts |
-| Stray fill (MSFT) | ≈ −0.1 pts | ≈ −0.1 pts |
+**Week 4 (ending Oct 30): −1.9%** vs QQQ −2.0%. Booster exits worked (P +4.0%, SNPS +3.0%); the first Lab trade hit its stop (SHOP −12.2%), which ends Lab experiment #1. Since start −7.2% vs QQQ −7.9%, within the expected range. [Full week 4 report →](LIVE.md#week-4-report--week-ending-oct-30)
 <!-- PIT-REPORT:END -->
 
-**[Full weekly log →](LIVE.md)** · Pass/fail at week 26: beat QQQ after costs. Bitcoin and SMH are shown for context.
+![The weekly call](live/call.svg)
 
-> **A trading sandbox, not your retirement plan.** Use a **separate, small account** you're OK playing with.
->
-> **Not financial advice.** You can lose money (the backtest below had a −34% drawdown). Read the [fine print](#the-fine-print). Start on a paper account.
+![Where the return came from](live/engines.svg)
 
----
+> **A trading sandbox, not your retirement plan.** Use a **separate, small account** you're OK playing with. **Not financial advice:** you can lose money (the backtest had a −34% drawdown). Read the [fine print](#the-fine-print).
 
-## Why two engines?
+## Now testing
 
-We tested a lot of "fast trading" ideas, and most of them **lost money after costs**: tight stops, 5-day swing trades, intraday dip-buying. The two things that held up on a fair test were:
+![What the agent is trying next](live/testing.svg)
+
+Every Saturday the agent reviews the week, back-tests rule ideas on 5 years of data and proposes changes. Nothing reaches the live rules without the owner's yes. Shadow rules are logged but never change an order. Every change is dated in the [rule history](LIVE.md#rule-changes).
+
+## How it trades
+
+![How a trading week runs](live/flow.svg)
 
 | Engine | Share | What it does | Pace |
 |---|---|---|---|
-| **BOOMER** | **70%** | Every Monday it holds the **5 strongest stocks** by 3-month return. It keeps a winner while it stays in the top 10. | ~1–2 trades/week |
-| **BOOSTER** | **30%** | Buys **sharp 1–3 day dips in the top-15 leaders**, then sells into the bounce. Up to 3 slots. | ~2–3 trades/week |
+| **BOOMER** | **70%** | Every Monday it holds the **5 strongest stocks** by 3-month return, and keeps a winner while it stays in the top 10. | ~1–2 trades/week |
+| **BOOSTER** | **30%** | Buys **sharp 1–3 day dips in the top-20 leaders**, then sells into the bounce. Up to 3 slots. | ~2–3 trades/week |
+| **LAB** | idle cash | Runs **one written experiment at a time**, small and capped, with a verdict after 8–10 trades. | 0–2 trades/week |
 
-**Together: about 4 trades a week**, all from rules, no vibes.
+<details>
+<summary><b>The rulebook: v4.2, live since Oct 19, 2026</b></summary>
 
----
+#### Boomer
 
-## Launch sequence (about 15 min)
+| Rule | Setting |
+|---|---|
+| **When** | The first trading day of each week |
+| **Rank** | Every stock in the universe by **3-month return**. Only names **above their 50-day average** qualify. |
+| **Hold** | The **top 5**, about 14% of the account each. Any holding below 80% of its target gets **topped up** on Monday. |
+| **Keep** | A holding stays while it's still in the **top 10** |
+| **Sell** | When it drops out of the top 10 or falls below its 50-day average |
+| **Bad weather** | If **QQQ is below its 200-day average**, hold only the top 2 and keep the rest in cash |
+
+#### Booster
+
+| Rule | Setting |
+|---|---|
+| **Hunting ground** | The **top-20 momentum names** that are above their 200-day average (dips in leaders, not falling knives) |
+| **Signal** | **RSI(2) below 15** on the last completed day (a sharp 1–3 day selloff) |
+| **Entry** | A **limit buy at the live price +0.5%**, DAY order. **Skipped if the stock is already more than 3% above yesterday's close** (the bounce has started). |
+| **Size** | Up to **3 slots**, about 10% of the account each |
+| **Exit** | When **RSI(2) climbs above 70**, after **10 trading days**, or on a close **8% below entry** |
+| **Earnings** | No dip-buys within 2 trading days of a report |
+
+#### Lab
+
+| Rule | Setting |
+|---|---|
+| **Money** | Idle cash only: 1–2 positions, about 10% each, **20% max** |
+| **One theory at a time** | Written down before the first trade. Verdict after 8–10 closed trades. |
+| **Exits** | Stop on a close **8% below entry** · **half off at +15%** · trail the rest below the 20-day average · **15-day** time stop |
+| **History** | #1 Breakouts (20-day high on above-average volume): ended Oct 30 after its stop. #2 Sell-off rebound: proposed, waiting for approval. |
+
+#### Brakes, orders and taxes
+
+- **−20% from the peak** → no new Booster or Lab buys. **−35%** → the agent proposes going all-cash and waits for you.
+- **Orders:** every order is a **LIMIT, DAY instruction** priced from the live price (buys +0.5%, sells −0.5%). A **1:30 pm check** reminds you about unsubmitted instructions, re-prices sells that didn't fill, and cancels anything left over. The agent never submits an order.
+- **Taxes:** no rebuy within **32 days** of a loss sale (wash-sale guard, checked across every account you list), **sell losers first** when two choices tie, and a **December** harvest review.
+- **Hard limits:** long-only stocks. No options, margin, shorting or leveraged ETFs.
+
+#### The universe: 84 names
+
+The live account trades the original 2022 list (62 names, without PLTR) plus 22 current leaders added on Oct 12, 2026. **The added names bring hindsight:** they were picked after they ran. The backtest below used the original list only.
+
+`AAPL` · `ABNB` · `ADBE` · `ADSK` · `AFRM` · `ALAB` · `AMAT` · `AMD` · `AMGN` · `AMZN` · `ANET` · `APP` · `ARM` · `ASML` · `AVGO` · `BKNG` · `CEG` · `CIEN` · `COHR` · `COIN` · `COST` · `CRM` · `CRWD` · `CSCO` · `DDOG` · `DELL` · `DKNG` · `DOCU` · `DXCM` · `EBAY` · `FTNT` · `GOOGL` · `HIMS` · `HOOD` · `HPE` · `INTC` · `INTU` · `IONQ` · `ISRG` · `KLAC` · `LCID` · `LLY` · `LRCX` · `LULU` · `MELI` · `META` · `MRNA` · `MRVL` · `MSFT` · `MSTR` · `MU` · `NET` · `NFLX` · `NOW` · `NVDA` · `OKTA` · `ORCL` · `P` · `PANW` · `PDD` · `PEP` · `PYPL` · `QCOM` · `RBLX` · `RIVN` · `RKLB` · `ROKU` · `SBUX` · `SHOP` · `SMCI` · `SNOW` · `SNPS` · `SOFI` · `TEAM` · `TSLA` · `TSM` · `TXN` · `UBER` · `UPST` · `VRT` · `VST` · `WDAY` · `ZM` · `ZS`
+
+**Make your own call:** remove anything you don't want to own (some people skip defense, crypto or China names). Keep it **50+ names** and **decide before you look at recent charts**.
+
+#### What changed
+
+| Version | From | Change |
+|---|---|---|
+| v4 | Oct 5, 2026 | The backtested rules: Booster top 15, RSI(2) < 10, limit 1% below the prior close |
+| v4.1 | Oct 12, 2026 | 84 names; Booster top 20, RSI(2) < 15, limit +0.5%; Monday top-ups; the Lab; tax rules |
+| v4.2 | Oct 19, 2026 | Limits from live prices; skip a dip that already bounced 3%+; decision run at 9:45 am ET |
+
+v4.1 and v4.2 are **not backtested**. The week-26 verdict will say what they earned.
+
+</details>
+
+## The race
+
+![Twin Turbo vs Value Cruiser](live/race.svg)
+
+Same start, opposite philosophies. [Value Cruiser](https://github.com/OmarTokens/value-cruiser) is the calm sibling: a fixed five-fund core plus a small value sleeve.
+
+## Build your own
+
+<details>
+<summary><b>Launch in 15 minutes (3 questions)</b></summary>
 
 | Step | Do this |
 |---|---|
 | 1 | **Connect** in Claude (Settings → Connectors): **Interactive Brokers** (required) and **Gmail** (for the email; optional) |
 | 2 | **Create a Cowork project.** Name it after your agent. |
 | 3 | **Paste this** into a new session: *"Set me up from this guide: https://github.com/OmarTokens/twin-turbo-trader. Ask me the 3 questions, save the engine and my config to the project, then do a dry run with a sample email. No orders yet."* |
-| 4 | **Say "schedule it."** It runs weekdays at **~8:50 am ET** (pre-market). Turn on **"Automatically approve"** in the scheduled task's settings if it's offered. |
-| 5 | **When the email lands (~9:15):** open IBKR → Orders → Instructions, **Submit** or **Delete** each one before or during the trading day |
+| 4 | **Say "schedule it."** It runs weekdays at **~9:45 am ET** with live prices, plus a **1:30 pm** execution check. Turn on **"Automatically approve"** in the scheduled task's settings if it's offered. |
+| 5 | **When the email lands (~10:00):** open IBKR → Orders → Instructions and **Submit** or **Delete** each one. Submit each instruction once. |
 
 > **Check your IBKR commission plan.** On a small account, a $1 minimum per order eats the Booster's edge. **Tiered** ($0.35 minimum) added about **+30 points** in the test. Lite ($0) helps a bit more.
 
----
-
-## Just 3 questions
-
-### 1 · How much?
+#### 1 · How much?
 The amount in your trading account: $____. *A paper account or $2–10k is plenty to learn.*
 
-### 2 · Which mix?
+#### 2 · Which mix?
 
 | | **Twin Turbo** *(default)* | **Full Boomer** | **Even Split** |
 |---|---|---|---|
@@ -80,73 +133,13 @@ The amount in your trading account: $____. *A paper account or $2–10k is plent
 
 <sub>*Fair-universe backtest, tiered commissions. See [the evidence](#the-evidence-and-its-limits).</sub>
 
-### 3 · Email vibe?
+#### 3 · Email vibe?
  Hype coach · F1 race engineer · Wall St veteran · Chill surfer · Sports commentator · Pirate · Secret agent · Plain · *invent your own*
 
----
+</details>
 
-## Boomer: the rules
-
-| Rule | Setting |
-|---|---|
-| **When** | The first trading day of each week |
-| **Rank** | Every stock in the universe by **3-month return**. Only names **above their 50-day average** qualify. |
-| **Hold** | The **top 5**, about 14% of the account each |
-| **Keep** | A holding stays while it's still in the **top 10** (cuts pointless churn) |
-| **Sell** | When it drops out of the top 10 or falls below its 50-day average |
-| **Bad weather** | If **QQQ is below its 200-day average**, hold only the top 2 and keep the rest in cash |
-
-## Booster: the rules
-
-| Rule | Setting |
-|---|---|
-| **Hunting ground** | Only the **top-15 momentum names** that are above their 200-day average (dips in leaders, not falling knives) |
-| **Signal** | **RSI(2) below 10** (a sharp 1–3 day selloff) |
-| **Entry** | A **limit buy 1% below yesterday's close**, DAY order. If it doesn't fill, no trade. That's on purpose. |
-| **Size** | Up to **3 slots**, about 10% of the account each |
-| **Exit** | When **RSI(2) climbs above 70** (the bounce is done) |
-| **Time stop** | After **10 trading days**, regardless |
-| **Stop** | A close **8% below entry** (the agent also sets a price alert) |
-| **Earnings** | No dip-buys within 2 trading days of a report |
-
-## Brakes
-
-- **−20% from the peak** → no new Booster buys
-- **−35% from the peak** → the agent proposes going all-cash and waits for you
-
-## Live rule changes (v4.1, from Oct 12, 2026)
-
-The rules above are **v4, the version that was backtested**. After week 1, the live account switched to **v4.1**. The live scoreboard tests v4.1, and **v4.1 has not been backtested yet**.
-
-| What | v4 (guide, backtested) | v4.1 (live account) | Why |
-|---|---|---|---|
-| Universe | 62 names (2022 list) | **84 names**: the 62 plus 22 current leaders (ARM, DELL, HPE, TEAM, CIEN, COHR, P, ALAB, ANET, CEG, VST, CRM, NOW, ORCL, UBER, APP, VRT, TSM, LLY, HIMS, RKLB, IONQ) | Search wider. This adds hindsight: these names were picked *after* they ran. |
-| Booster hunting ground | Top 15 | **Top 20** | More dip candidates |
-| Booster signal | RSI(2) < 10 | **RSI(2) < 15** | Fewer near-misses |
-| Booster entry | Limit 1% *below* yesterday's close | **Limit 0.5% *above* yesterday's close** | In week 1, both Booster signals bounced before filling, so the 30% sleeve sat idle |
-| Boomer sizing | Size only new buys | **Top up any holding below 80% of target** every Monday | Undersized legacy positions dragged returns |
-| Lab (new) | — | Idle cash runs **one written theory at a time**: 1–2 positions, ~10% each, max 20% total, stop −8%, half off at +15%, 15-day time stop. Experiment #1: **large-cap breakouts** (20-day high on above-average volume). | The owner wants an *active* test bed for ideas, not parked cash. Verdict after 8–10 closed trades. |
-| Taxes (new) | — | **Wash-sale guard** (no rebuy within 32 days of a loss sale), **sell losers first** on ties, **December harvest review** | Keep harvested losses valid in a taxable account |
-
-**Unchanged:** Boomer ranking and exits, Booster exits, brakes, instructions-only, long-only, no defense names.
-
- **Honest note:** changing rules after one week is exactly what the golden rule warns against. These are execution fixes plus an explicitly labeled experiment. The week-26 verdict will say which version earned what.
-
----
-
-## The universe: 63 names
-
-This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 plus that year's hot retail names), **including the ones that crashed afterwards**. Don't add today's hottest stock; that's how backtests lie.
-
-`AAPL` · `ABNB` · `ADBE` · `ADSK` · `AFRM` · `AMAT` · `AMD` · `AMGN` · `AMZN` · `ASML` · `AVGO` · `BKNG` · `COIN` · `COST` · `CRWD` · `CSCO` · `DDOG` · `DKNG` · `DOCU` · `DXCM` · `EBAY` · `FTNT` · `GOOGL` · `HOOD` · `INTC` · `INTU` · `ISRG` · `KLAC` · `LCID` · `LRCX` · `LULU` · `MELI` · `META` · `MRNA` · `MRVL` · `MSFT` · `MSTR` · `MU` · `NET` · `NFLX` · `NVDA` · `OKTA` · `PANW` · `PDD` · `PEP` · `PLTR` · `PYPL` · `QCOM` · `RBLX` · `RIVN` · `ROKU` · `SBUX` · `SHOP` · `SMCI` · `SNOW` · `SNPS` · `SOFI` · `TSLA` · `TXN` · `UPST` · `WDAY` · `ZM` · `ZS`
-
- **Live-test note:** the live account started with **62** of these and has run an **84-name** list since Oct 12 (see *Live rule changes* above). PLTR is removed (the owner skips defense names). The backtest below used all 63, and PLTR was one of its biggest winners, so the live test starts without one of the backtest's best names.
-
- **Make your own call:** remove anything you don't want to own (some people skip defense, crypto, or China names). Keep it **50+ names** and **decide before you look at recent charts**.
-
----
-
-## The daily email
+<details>
+<summary><b>The daily email and mission control</b></summary>
 
 **Sample ("F1 race engineer" voice):**
 > **Subject: Twin Turbo — Mon Oct 5 — 3 to submit**
@@ -155,7 +148,7 @@ This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 
 >
 > **SELL — XYZ** · BOOMER · fell out of the top 10 · `qty 2.1 · limit $—`
 > **BUY — ABC** · BOOMER · momentum #2, 3m +48% · `qty 1.4 · limit $—`
-> **BUY — DEF** · BOOSTER · RSI(2) 4, a dip in a top-15 leader · `qty 3.0 · limit $— (−1%) · stop −8% · exit RSI(2) > 70 or 10 days`
+> **BUY — DEF** · BOOSTER · RSI(2) 4, a dip in a top-20 leader · `qty 3.0 · limit $— (live +0.5%) · stop −8% · exit RSI(2) > 70 or 10 days`
 >
 > **Garage:** 7 holdings · week +1.2% vs QQQ +0.8%
 > **On the radar:** GHI (RSI(2) 14), JKL (RSI(2) 19)
@@ -164,10 +157,6 @@ This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 
 > <sub>Automated output from your own tool, not financial advice. You make every call.</sub>
 
 **Remix anytime:** `email vibe pirate` · `email shorter` · `email no jokes`
-
----
-
-## Mission control
 
 | If… | Say |
 |---|---|
@@ -180,11 +169,16 @@ This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 
 
  **Golden rule:** **don't tweak for 12 weeks.** Momentum has long cold spells, and the big winners come rarely. Bailing after a bad month is how this strategy loses.
 
----
+</details>
 
-## The evidence (and its limits)
+<details>
+<summary><b>The evidence (and its limits)</b></summary>
 
-**Setup:** daily bars from IBKR, Aug 1 2022 → Oct 2 2026, a $4,010 start, 0.1% slippage each way, signals on the prior close, trades the next day.
+<a id="the-evidence-and-its-limits"></a>
+
+*The backtest tested the **v4** rules (Booster top 15, RSI(2) < 10, limit 1% below the prior close) on the original 63-name list.*
+
+**Setup:** daily bars from IBKR, Aug 1 2022 → Oct 2 2026, a small starting account, 0.1% slippage each way, signals on the prior close, trades the next day.
 
 | Strategy | Total | Max drawdown | Trades/week |
 |---|---|---|---|
@@ -209,50 +203,58 @@ This is a **fixed list**, chosen the way you would have in 2022 (the Nasdaq-100 
 - The list was compiled in 2026. Companies acquired since 2022 are missing.
 - **A backtest is not a forecast.** 4 years is one market regime.
 
----
-
-## The agent's rulebook
+</details>
 
 <details>
-<summary><b>Agent: read this section and follow it exactly.</b></summary>
+<summary><b>The agent's rulebook (for Claude)</b></summary>
+
+**Agent: read this section and follow it exactly.**
 
 **Setup.** If the project has no `config` doc:
 1. Show the Fine Print and ask the user to confirm they've read it.
 2. Ask the 3 questions, one at a time.
-3. Use IBKR `search_contracts` to find the stock conid for every universe ticker plus QQQ. Save `config` (agent name, account size, mix, email vibe, universe with conids, `proposals_only: true`, change history) and `state` (`{"boomer": [], "booster": {}, "last_boomer_rebalance": null}`).
+3. Use IBKR `search_contracts` to find the stock conid for every universe ticker plus QQQ. Save `config` (agent name, account size, mix, email vibe, universe with conids, `proposals_only: true`, change history) and `state` (`{"boomer": [], "booster": {}, "lab": {}, "wash_sale_block": {}, "last_boomer_rebalance": null}`).
 4. Save the engine below to the project as `engine.py`. If the mix isn't 70/30, change `BOOMER_W, BOOSTER_W` (for 100/0, Booster gets no buys).
 5. Do a dry run and send a sample email.
 
-When asked to schedule: weekdays at about 8:50 am ET, plus the Friday review in the same run. Remind the user about "Automatically approve".
+When asked to schedule: weekdays at about **9:45 am ET** (the decision run; the Friday review in the same run) and **1:30 pm ET** (the execution check). Remind the user about "Automatically approve".
 
-**Each run.**
+**Each decision run.**
 1. If today isn't a US trading day, stop.
-2. IBKR: account summary (equity = net liquidation, cash = available funds), positions, open orders (count cash they reserve, flag duplicates), and order instructions.
-3. Prices: `get_price_history` with step ONE_DAY, period FIVE_YEARS, outside_rth false for QQQ, every universe name, and anything held outside the universe. Map ticker → saved file. Retry once. If QQQ or more than 10 names are missing, **make no proposals** and say why.
-4. Write `account.json` and run the engine. Add `--boomer-day` on the first trading day of the week, or if the last rebalance is missing or more than 7 days old.
-5. Review: sells first; repeat unsubmitted sells as URGENT. Skip Booster buys with earnings within 2 trading days. If the engine flags a one-day move above 50%, verify it with 2 dated news sources or skip the buy. Total buys ≤ cash after sells minus open orders. Apply the brakes.
-6. Unless `proposals_only` is on, create **LIMIT, DAY order instructions** at the engine's prices. **Never submit live orders.** For each Booster buy, create a price alert at entry −8%.
-7. Save the engine's `state_after` (drop skipped buys).
-8. Send the email in the user's vibe: exact numbers, the engine's reason, one line of news per trade, holdings, the week vs QQQ, and the one-line disclaimer. Log the run in a journal doc.
+2. IBKR: account summary (equity = net liquidation, cash = available funds), positions, open orders (count the cash they reserve, flag duplicates), order instructions, and the last 7 days of trades.
+3. Prices: `get_price_history` (ONE_DAY, FIVE_YEARS, outside_rth false) for QQQ, every universe name and anything held. Retry once. If QQQ or more than 4 names are missing, **make no proposals** and say why. Then `get_price_snapshot` for every name the plan might touch and write `live.json`.
+4. Write `account.json` and run the engine with `--live live.json`. Add `--boomer-day` on the first trading day of the week, or if the last rebalance is missing or more than 7 days old.
+5. Review: sells first; repeat unsubmitted sells as URGENT. **Skip a Booster buy if the live price is more than 3% above the prior close.** Skip Booster buys within 2 trading days of earnings. If the engine flags a one-day move above 50%, verify it with 2 dated news sources or skip the buy. Never buy a name inside its 32-day wash-sale block. Total buys ≤ cash after sells minus open orders. Apply the brakes.
+6. **Lab** (idle cash only, ≤ 20%): check the current experiment's written entry rule on completed bars; at most one new Lab buy a day. Manage exits: close 8% below entry, half off at +15%, trail below the 20-day, 15-day time stop.
+7. Unless `proposals_only` is on, create **LIMIT, DAY order instructions** at the engine's prices. **Never submit live orders.** For each Booster and Lab buy, create a price alert at entry −8%. Cancel or delete yesterday's unfilled instructions so nothing fills a day late.
+8. Save the engine's `state_after` (drop skipped buys).
+9. Send the email in the user's vibe: exact numbers, the engine's reason, one line of news per trade, holdings, the week vs QQQ, and the one-line disclaimer. Log the run in a journal doc.
 
-**Friday review.** Boomer vs Booster vs QQQ (week and since start), win rate per engine, trades, the biggest mistake, and one suggested tweak (**suggest only**). Before 12 weeks, recommend no rule changes.
+**1:30 pm check.** No new ideas. Remind about unsubmitted instructions; if a sell didn't fill and its limit is above the market, create a fresh sell at the live price −0.5% and tell the user to cancel the old one first; let a buy that ran more than 2% above its limit expire; any Booster or Lab position at or below its stop gets an URGENT sell instruction. Email only if something needs doing.
+
+**Friday review.** Boomer vs Booster vs Lab vs QQQ (week and since start), win rate per engine, fill rate, the biggest mistake, and one suggested tweak (**suggest only**).
+
+**Saturday rule lab (optional).** Back-test proposed rule changes on 5 years of daily bars (with costs and tax), then email at most 3 ideas to add and 3 to ease, each with an ID and its numbers. Apply only what the user approves. Never propose removing the hard limits.
 
 **Guardrails (not negotiable).** Instructions only. Long-only stocks: no options, margin, shorting, or leveraged ETFs. Follow the engine and don't improvise signals. Never call output advice or a guarantee.
 
 <details>
-<summary><code>engine.py</code></summary>
+<summary><code>engine.py</code> (v4.2)</summary>
 
 ```python
-"""Twin Turbo engine: 70% Boomer (weekly momentum top-5) + 30% Booster (dip-buys in top-15 momentum names).
+"""Twin Turbo engine v4.2: 70% Boomer (weekly momentum top-5) + 30% Booster (dip-buys in top-20 momentum names).
+v4.1 (Oct 10 2026): wider universe, looser Booster entry, Monday top-ups. v4.2 (Oct 19 2026): limits from live prices.
+Signals always use completed daily bars; --live only sets the limit prices.
 
 Usage:
   python3 engine.py --prices prices_map.json --universe universe.json --state state.json \
-      --account account.json --today YYYY-MM-DD [--boomer-day]
+      --account account.json --today YYYY-MM-DD [--boomer-day] [--live live.json]
 
 prices_map.json : {"TICKER": "/path/to/ibkr_price_history.json", ...}  (IBKR get_price_history ONE_DAY output; include QQQ)
-universe.json   : {"universe": ["AAPL", "ABNB", ...]}  (the list above, minus anything you removed)
+universe.json   : {"universe": ["AAPL", "ABNB", ...]}  (the list in the rulebook, minus anything you removed)
 account.json    : {"equity": 5000.0, "cash": 300.0, "positions": {"MU": {"qty": 0.8, "avg": 1052.35}, ...}}
 state.json      : {"boomer": ["MU", ...], "booster": {"NVDA": {"entry": 180.1, "date": "2026-10-05"}}, "last_boomer_rebalance": "YYYY-MM-DD"}
+live.json       : {"TICKER": last_price, ...}  (IBKR get_price_snapshot at run time)
 Prints a JSON plan (orders + reasons). Never places orders.
 """
 import json, argparse, math
@@ -260,7 +262,9 @@ import pandas as pd, numpy as np
 
 BOOMER_W, BOOSTER_W = 0.70, 0.30
 TOP, KEEP_RANK = 5, 10
-B_SLOTS, B_TOPRANK, B_RSI_IN, B_RSI_OUT, B_MAXD, B_STOP, B_LIMIT = 3, 15, 10, 70, 10, 0.08, 0.01
+# v4.1: Booster hunts the top 20 (was 15), RSI2 < 15 (was 10), limit 0.5% above the price (was 1% below) so dips actually fill
+B_SLOTS, B_TOPRANK, B_RSI_IN, B_RSI_OUT, B_MAXD, B_STOP, B_LIMIT = 3, 20, 15, 70, 10, 0.08, -0.005
+TOPUP_MIN = 0.80  # v4.1: top up Boomer holdings that are below 80% of target weight
 
 def load(path):
     j = json.load(open(path))
@@ -282,13 +286,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--prices'); ap.add_argument('--universe'); ap.add_argument('--state'); ap.add_argument('--account')
     ap.add_argument('--today'); ap.add_argument('--boomer-day', action='store_true')
+    ap.add_argument('--live', help='JSON {TICKER: last price} from IBKR snapshots taken at run time')
     a = ap.parse_args()
     uni = json.load(open(a.universe)); names = list(uni['universe'])
     pm = json.load(open(a.prices)); st = json.load(open(a.state)); acct = json.load(open(a.account))
     today = pd.Timestamp(a.today).date()
+    LIVE = json.load(open(a.live)) if a.live else {}
+    def px(t, fallback): return float(LIVE.get(t) or fallback)
     D = {t: indicators(load(p)) for t, p in pm.items()}  # universe + QQQ + every held symbol
-    # use last COMPLETED bar strictly before today
-    def last(t):
+    def last(t):  # last COMPLETED bar strictly before today
         df = D[t]; df = df[df.index < today]
         return df.iloc[-1] if len(df) else None
     q = last('QQQ'); risk_on = bool(q is not None and q.close > q.s200)
@@ -317,7 +323,7 @@ def main():
         elif r.rsi2 > B_RSI_OUT: reason = f'bounce done: RSI2 {r.rsi2:.0f} > 70'
         elif held >= B_MAXD: reason = f'time stop: {held} trading days'
         if reason:
-            qty = pos[t]['qty']; lim = round(float(r.close) * 0.995, 2)
+            qty = pos[t]['qty']; lim = round(px(t, r.close) * 0.995, 2)
             plan['sells'].append(dict(sleeve='booster', symbol=t, qty=qty, limit=lim, tif='DAY', reason=reason))
             cash += qty * lim; booster.pop(t)
 
@@ -330,41 +336,54 @@ def main():
         for t in boomer:
             if t not in target and t in pos:
                 r = rows.get(t) if t in rows else last(t) if t in D else None
-                lim = round(float(r.close) * 0.995, 2) if r is not None else None
-                why = f'fell out of top {KEEP_RANK} momentum' if t in names else 'not in the v4 universe'
+                lim = round(px(t, r.close) * 0.995, 2) if r is not None else None
+                why = f'fell out of top {KEEP_RANK} momentum' if t in names else 'not in the universe'
                 if t in names and r is not None and r.close <= r.s50: why = 'below 50-day average'
                 plan['sells'].append(dict(sleeve='boomer', symbol=t, qty=pos[t]['qty'], limit=lim, tif='DAY', reason=why))
                 if lim: cash += pos[t]['qty'] * lim
         boomer_val = sum(pos[t]['qty'] * float(rows[t].close) for t in target if t in pos and t in rows)
         budget = BOOMER_W * eq - boomer_val
+        tgt = BOOMER_W * eq / TOP
+        # v4.1 top-ups for held targets below 80% of target weight
+        for t in target:
+            if t in pos and t in rows:
+                have = pos[t]['qty'] * float(rows[t].close)
+                if have < TOPUP_MIN * tgt:
+                    amt = min(tgt - have, cash - 2)
+                    if amt >= 50:
+                        lim = round(px(t, rows[t].close) * 1.005, 2)
+                        plan['buys'].append(dict(sleeve='boomer', symbol=t, qty=round(amt / lim, 3), limit=lim, tif='DAY',
+                                                 reason=f'top-up: position below 80% of target'))
+                        cash -= amt; budget -= amt
         for t in target:
             if t in pos: continue
             jump = D[t][D[t].index < today].close.pct_change().tail(63).abs().max()
             if jump > 0.5: plan['notes'].append(f'{t}: one-day move of {jump*100:.0f}% in the last 3 months - VERIFY with news before proposing (possible data error)')
-            amt = min(BOOMER_W * eq / TOP, budget, cash - 2)
+            amt = min(tgt, budget, cash - 2)
             if amt < 50: plan['notes'].append(f'{t}: Boomer target but not enough cash'); continue
-            r = rows[t]; lim = round(float(r.close) * 1.005, 2)
+            r = rows[t]; lim = round(px(t, r.close) * 1.005, 2)
             plan['buys'].append(dict(sleeve='boomer', symbol=t, qty=round(amt / lim, 3), limit=lim, tif='DAY',
                                      reason=f'momentum rank #{momentum_rank.index(t)+1}, 3m {r.r63*100:+.0f}%, above 50-day'))
             budget -= amt; cash -= amt
         boomer = target
 
     # ---------- BOOSTER entries (every run) ----------
-    top15 = set(momentum_rank[:B_TOPRANK])
+    topn = set(momentum_rank[:B_TOPRANK])
     free = B_SLOTS - len(booster)
-    cands = [t for t in momentum_rank if t in top15 and t not in booster and t not in boomer and t not in pos
+    cands = [t for t in momentum_rank if t in topn and t not in booster and t not in boomer and t not in pos
              and rows[t].close > rows[t].s200 and rows[t].rsi2 < B_RSI_IN]
     for t in cands[:max(0, free)]:
         amt = min(BOOSTER_W * eq / B_SLOTS, cash - 2)
         if amt < 50: plan['notes'].append(f'{t}: Booster signal but not enough cash'); break
-        r = rows[t]; lim = round(float(r.close) * (1 - B_LIMIT), 2)
+        r = rows[t]; lim = round(px(t, r.close) * (1 - B_LIMIT), 2)
         plan['buys'].append(dict(sleeve='booster', symbol=t, qty=round(amt / lim, 3), limit=lim, tif='DAY',
-                                 reason=f'dip in top-15 leader: RSI2 {r.rsi2:.0f}, 3m {r.r63*100:+.0f}%; limit 1% below last close'))
+                                 reason=f'dip in top-{B_TOPRANK} leader: RSI2 {r.rsi2:.0f}, 3m {r.r63*100:+.0f}%; limit at live price +0.5%'))
         cash -= amt
         booster[t] = {'entry': lim, 'date': str(today), 'pending': True}
     plan['watch'] = [dict(symbol=t, rsi2=round(float(rows[t].rsi2)), r63=round(float(rows[t].r63)*100)) for t in momentum_rank[:B_TOPRANK]
-                     if rows[t].close > rows[t].s200 and 10 <= rows[t].rsi2 < 25 and t not in booster][:5]
+                     if rows[t].close > rows[t].s200 and B_RSI_IN <= rows[t].rsi2 < 30 and t not in booster][:5]
     plan['momentum_top10'] = [dict(symbol=t, r63=round(float(rows[t].r63)*100), above50=bool(rows[t].close > rows[t].s50)) for t in momentum_rank[:10]]
+    plan['cash_after'] = round(cash, 2)
     plan['state_after'] = dict(boomer=boomer, booster=booster, last_boomer_rebalance=str(today) if a.boomer_day else st.get('last_boomer_rebalance'))
     print(json.dumps(plan, indent=1, default=float))
 
@@ -375,9 +394,10 @@ if __name__ == '__main__':
 
 </details>
 
----
+<details>
+<summary><b>The fine print</b></summary>
 
-## The fine print
+<a id="the-fine-print"></a>
 
 *Short version: this is a free, do-it-yourself template. You run it, you decide, you own the results.*
 
@@ -392,6 +412,8 @@ if __name__ == '__main__':
 - **Keep it private.** Never share account numbers, passwords, or screenshots of your account with anyone, including whoever sent you this guide.
 
 By using this guide, you accept these terms.
+
+</details>
 
 ---
 

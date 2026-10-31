@@ -22,6 +22,7 @@ A live, public experiment: can a Claude agent following fixed momentum rules bea
 | From | Change |
 |---|---|
 | Week 2 (Mon Oct 12, 2026) | **v4 → v4.1:** 84-name universe, looser Booster entry (top 20, RSI(2) < 15, limit at prior close +0.5%), Monday top-ups, a **Lab** sleeve for one written experiment at a time, and tax rules (wash-sale guard, losers first, December review). v4.1 is not backtested. Week 1 ran pure v4. Details in the guide. |
+| Week 3 (Mon Oct 19, 2026) | **v4.1 → v4.2:** order limits are set from live prices at a 9:45 am ET run (buys +0.5%, sells −0.5%); a Booster dip-buy is skipped if the stock already trades more than 3% above the prior close; a 1:30 pm check reminds about unsubmitted orders, re-prices unfilled sells and cancels leftovers. Signals unchanged. Not backtested. |
 
 ## Weekly results
 
